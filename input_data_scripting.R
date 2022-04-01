@@ -123,5 +123,5 @@ df_full$continent <- countrycode(sourcevar = df_full[, "country"],
 colnames(df_full)[which(names(df_full) == "value")] <- "prob"
 df_full <- df_full[, c("country", "year", "prob", "gender", "newordeath", "type", "iso3", "continent")]
 
-write.csv(df_full, paste0(root, '/all_cancer.csv'), row.names = FALSE)
+write.csv(df_full, paste0(root, '/all_cancer_long.csv'), row.names = FALSE)
 
