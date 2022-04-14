@@ -103,7 +103,7 @@ df_full$gender <- ifelse(grepl("women", df_full$variable, ignore.case = T), "Fem
                   ifelse(grepl('both_genders', df_full$variable, ignore.case = T), 'Both', NA)))
 
 df_full$newordeath <- ifelse(grepl("new_cases", df_full$variable, ignore.case = T), "New Cases", 
-                         ifelse(grepl("deaths", df_full$variable, ignore.case = T), "Deaths", NA))
+                         ifelse(grepl("deaths", df_full$variable, ignore.case = T), "Death", NA))
 
 df_full$type <- ifelse(grepl("breast", df_full$variable, ignore.case = T), "Breast", 
                 ifelse(grepl("cervical", df_full$variable, ignore.case = T), "Cervical",
@@ -123,5 +123,5 @@ df_full$continent <- countrycode(sourcevar = df_full[, "country"],
 colnames(df_full)[which(names(df_full) == "value")] <- "prob"
 df_full <- df_full[, c("country", "year", "prob", "gender", "newordeath", "type", "iso3", "continent")]
 
-write.csv(df_full, paste0(root, '/all_cancer_long.csv'), row.names = FALSE)
+write.csv(df_full, paste0(root, '/cancer_forecast_input.csv'), row.names = FALSE)
 
